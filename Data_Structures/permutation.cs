@@ -8,7 +8,7 @@ namespace Data_Structures
     class permutation
     {
         public static int count = 0;
-        public static void Main()
+        public static void main()
         {
             TimeSpan t = DateTime.Now.TimeOfDay;
             

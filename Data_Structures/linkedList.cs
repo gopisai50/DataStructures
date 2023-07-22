@@ -5,77 +5,55 @@ using System.Text;
 
 namespace Data_Structures
 {
-    class linkedList
+    public class linkedList<T> // generic
     {
+        public linkedList(T data)
+        {
+            Node < T > node = new Node<T> (data);
+            this.head = node;
+            this.last = node;
+        }
 
-        //public static void Main()
-        //{
-        //    linkedlistdemo ls = new linkedlistdemo();
-        //    ls.addatlast(3);
-        //    ls.addatlast(5);
-        //    ls.addatlast(7);
-        //    ls.addatlast(39);
-        //    ls.printallnodes();
-        //    ls.remove();
-        //    ls.printallnodes();
+        public Node<T> head;
+        public Node<T> last;
 
-        //}
+        public void AddLast(T data)
+        {
+            Node<T> node = new Node<T>(data);
 
+            this.last.address = node;
+            this.last = this.last.address;
+        }
+
+        public void AddFront(T data)
+        {
+            Node<T> node = new Node<T>(data);
+
+            node.address = head;
+            this.head = node;
+        }
+
+        public void PrintAll()
+        {
+            Node<T> node = this.head;
+            while(node !=null)
+            {
+                Console.WriteLine(node.data);
+                node = node.address;
+            }
+        }
+    }
+
+    public class Node<T>
+    {
+        public T data;
+
+        public Node<T> address = null;
+
+        public Node(T data) {
+           this.data = data;
+        }
 
     }
-    
-    //class node
-    //{
-    //    public node next;
-    //    public int item;
-    //    public node()
-    //    {
-    //    next = null;
-    //    item = 0;
-    //    }
-    // }
-
-    //class linkedlistdemo
-    //{
-    //    node head;
-    //    node current;
-    //   int count =0;
-
-    //   public linkedlistdemo()
-    //   {
-    //       head = new node();
-    //       current = head;
-    //   }
-    //    public void addatlast(int data)
-    //    {
-    //        node pre = new node();
-    //        pre.item = data;
-    //        current.next  = pre;
-    //        current = pre;
-    //            count++;
-    //     }
-    //    public void remove()
-    //    {
-    //        if (count > 0)
-    //        {
-    //            head.next = head.next.next;
-    //            count--;
-    //        }
-    //    }
-
-    //    public void printallnodes()
-    //    {
-    //        node cu = head;
-    //        while (cu.next != null)
-    //        {
-    //            cu = cu.next;
-    //            Console.WriteLine(cu.item);
-    //        }
-    //        Console.ReadLine();
-    //    }
-
-
-    //}
-
 }
 
